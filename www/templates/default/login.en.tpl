@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Sper.gs</title>
+		<title>Fetch Boards</title>
 	</head>
 	<body onload="document.getElementsByTagName('input')[0].focus();">
 		<h1>Login</h1>

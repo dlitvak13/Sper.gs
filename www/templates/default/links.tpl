@@ -2,12 +2,13 @@
 	<h1>Links</h1>
 
 	<div class="userbar">
-		<a href="./profile.php?user={$user_id}">{$username} ({$karma})</a>:
+		<a href="./profile.php?user={$user_id}">{$username}</a> :
 		<span id="userbar_pms" style="display:none">
 			<a href="./inbox.php">Private Messages (<span id="userbar_pms_count">0</span>)</a>
 		|</span> 
-		<a href="./links.php?mode=user&amp;userid=18026&amp;type=3#"onclick="return toggle_spoiler(document.getElementById('links_cat_filt'))">Edit category filters</a> | 
+		<!-- <a href="./links.php?mode=user&amp;userid=18026&amp;type=3#"onclick="return toggle_spoiler(document.getElementById('links_cat_filt'))">Edit category filters</a> | 
 		<a href="https://wiki.endoftheinter.net/index.php/Help:Rules">Help</a>
+		-->
 	</div>
 
 

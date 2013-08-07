@@ -5,7 +5,7 @@
 		<span id="userbar_pms" style="display:none">
 			<a href="./inbox.php">Private Messages (<span id="userbar_pms_count">0</span>)</a> |
 		</span>
-		<a href="//wiki.endoftheinter.net/index.php/Help:Rules">Help</a>
+		
 	</div>
 {literal}
 	<script type="text/javascript">
@@ -32,7 +32,7 @@
 			<td>{if $p_status == -1}<b>Banned</b>{/if}</td>
 		</tr>
 {/if}
-		<tr>
+		<!--<tr>
 			<td>Total Karma</td>
 			<td>{$p_karma}</td>
 		</tr>
@@ -48,6 +48,7 @@
 			<td><a href="./links.php?mode=user&amp;userid={$p_user_id}&amp;type=3">Contribution Karma</a></td>
 			<td>{$contribution_karma}</td>
 		</tr>
+-->
 {if $user_id == $p_user_id}
 		<tr>
 			<td>Avaible Credits</td>
@@ -113,6 +114,7 @@
 			<td colspan="2"><a href="./mytokens.php?user={$p_user_id}">View My Available Tokens</a></td>
 		</tr>
 -->
+{if $access_level > 0}
 		<tr>
 			<td colspan="2"><a href="./shop.php">Enter The Token Shop</a></td>
 		</tr>      
@@ -122,6 +124,7 @@
 		<tr>
 			<td colspan="2"><a href="./invite.php">Invite a User</a></td>
 		</tr>
+{/if}
 	<!--
 		<tr>
 			<td colspan="2"><a href="./showfavorites.php">View My Tagged Topics</a></td>

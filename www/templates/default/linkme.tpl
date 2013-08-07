@@ -1,16 +1,16 @@
 {include file="header.tpl"}
 	<h1>{$link_data.title}</h1><br />
 	<br />
-	{$link_data.url}
+	<h2>{$link_data.url}</h2>
 	<br />
 	<br />
 	<b>Added by:</b> <a href="./profile.php?user={$link_data.user_id}">{$link_data.username}</a><br />
 	<b>Date:</b> {$link_data.created|date_format:$dateformat}<br />
-	<b>Code:</b> <a href="./linkme.php?l=SS{$link_data.link_id}">SS{$link_data.code}</a><br />
+	<!--<b>Code:</b> <a href="./linkme.php?l=SS{$link_data.link_id}">SS{$link_data.code}</a><br />-->
  	<b>Hits:</b> {$link_data.hits}<br />
 	<b>Rating:</b> {$link_data.rating|string_format:"%.2f"}/10 (based on {$link_data.NumberOfVotes} votes)<br />
 	<b>Rank:</b> {$link_data.rank|string_format:"%.0f"}<br />
-	<b>Share:</b> <a href="./ss.php?l={$link_data.code}">{$domain}/ss.php?l=SS{$link_data.code}</a><br /><br />
+	<!--<b>Share:</b> <a href="./ss.php?l={$link_data.code}">{$domain}/ss.php?l=SS{$link_data.code}</a>--><br /><br />
 	<b>Categories:</b> {$link_data.categories}<br />
 	<b>Options:</b> 
 	<a href="./linkme.php?f=1&amp;l={$link_data.link_id}&amp;token={$token}">Add to Favorites</a> | 

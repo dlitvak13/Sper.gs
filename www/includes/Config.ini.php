@@ -44,7 +44,7 @@ elseif(!isset($install))
 
 ##Sitewide Settings
 define("DOMAIN", "");
-define("SITENAME", "Sper.gs");
+define("SITENAME", "Fetch Boards");
 define("BASE_IMAGE_URL", "usercontent/i");
 
 ##Search Settings
