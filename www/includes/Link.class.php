@@ -60,10 +60,12 @@ class Link{
 		}
 		$sql = "SELECT Users.username, Links.link_id, Links.user_id, Links.title, Links.url, COUNT(LinkVotes.vote) AS NumberOfVotes, 
 				SUM(LinkVotes.vote) - (5 * COUNT(LinkVotes.vote)) AS rank, SUM(LinkVotes.vote)/COUNT(LinkVotes.vote) AS rating, 
-				Links.created 
+				Links.created, GROUP_CONCAT(LinkCategories.name) AS Categories, GROUP_CONCAT(LinkCategories.category_id) AS CategoriesID 
 				FROM Users LEFT JOIN
 				Links USING(user_id) 
 				LEFT JOIN LinkVotes USING(link_id) 
+				LEFT JOIN LinksCategorized USING (link_id) 
+				LEFT JOIN LinkCategories USING (category_id) 
 				$where 
 				GROUP BY link_id ORDER BY $order";
 		$statement = $this->pdo_conn->query($sql);
@@ -78,6 +80,8 @@ class Link{
 				$link_data[$i]['rank'] = $link_data_array['rank'];
 				$link_data[$i]['rating'] = $link_data_array['rating'];
 				$link_data[$i]['username'] = $link_data_array['username'];
+				$link_data[$i]['categories'] = explode(',', $link_data_array['Categories']);
+				$link_data[$i]['categoriesID'] = explode(',', $link_data_array['CategoriesID']);
 			}
 		}
 		return $link_data;
@@ -103,12 +107,13 @@ class Link{
 		}
 		$sql = "SELECT Users.username, Links.link_id, Links.user_id, Links.title, Links.url, COUNT(LinkVotes.vote) AS NumberOfVotes, 
 				SUM(LinkVotes.vote) - (5 * COUNT(LinkVotes.vote)) AS rank, SUM(LinkVotes.vote)/COUNT(LinkVotes.vote) AS rating, 
-				Links.created 
+				Links.created, GROUP_CONCAT(LinkCategories.name) AS Categories, GROUP_CONCAT(LinkCategories.category_id) AS CategoriesID 
 				FROM Users LEFT JOIN
 				Links USING(user_id) 
 				LEFT JOIN LinkVotes USING(link_id) 
-				LEFT JOIN LinksCategorized USING (link_id) 
-				WHERE LinksCategorized.category_id='$id' 
+				LEFT JOIN LinksCategorized USING (link_id)  
+				LEFT JOIN LinkCategories USING (category_id) 
+				WHERE LinksCategorized.category_id = '$id' 
 				GROUP BY link_id ORDER BY $order";
 		$statement = $this->pdo_conn->query($sql);
 		$link_data = array();
@@ -122,6 +127,8 @@ class Link{
 				$link_data[$i]['rank'] = $link_data_array['rank'];
 				$link_data[$i]['rating'] = $link_data_array['rating'];
 				$link_data[$i]['username'] = $link_data_array['username'];
+				$link_data[$i]['categories'] = explode(',', $link_data_array['Categories']);
+				$link_data[$i]['categoriesID'] = explode(',', $link_data_array['CategoriesID']);
 			}
 		}
 		return $link_data;

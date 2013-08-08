@@ -87,7 +87,7 @@ if($auth == TRUE){
 	else
 		$link_list = $links->getLinkList($order);
 	$categories = $links->getCategories($db);
-	$smarty->assign("links", $link_list, $categories);
+	$smarty->assign("links", $link_list);
 	require("includes/deinit.php");
 }else
 	require("404.php");

@@ -65,7 +65,7 @@
 {foreach from=$links key=header item=table}
 			<tr class="r0">
 				<td>
-					<a href="./linkme.php?l={$table.link_id}">{$table.title}</a>
+					<a href="./linkme.php?l={$table.link_id}">{$table.title}</a> <span style="float:right;">{section name=category loop=$table.categories}<a href="./links.php?mode=category&id={$table.categoriesID[category]}">{$table.categories[category]}</a> {/section}</span>
 				</td>	
 				<td>
 					<a href="./profile.php?user={$table.user_id}">{$table.username}</a>
