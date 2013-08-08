@@ -40,8 +40,8 @@ if($auth == TRUE){
 		
 		$mail = new PHPMailer();
 		$email = $_POST['email'];
-		$mail->From = "no-reply@".DOMAIN;
-		$mail->FromName = "Do Not Reply";
+		$mail->From = "d.litvak@fetchrewards.com";
+		$mail->FromName = "Fetch Boards";
 		$mail->AddAddress($email);
 
 		$mail->WordWrap = 50;                                 // set word wrap to 50 characters
@@ -51,7 +51,7 @@ if($auth == TRUE){
 		$mail->Body    = "The user ".$authUser->getUsername()." has invited you to join ".SITENAME." and has specified this address ("
 						  .$email.") as your email. If you do not know this person, please disregard.<br /><br />".
 						  "<br />To confirm your invite, click on the folowing link:<br /><br /> ".
-						  "http://".DOMAIN."/register.php?code=$invite_code<br /><br />".
+						  "http://192.168.1.105/boards/www/register.php?code=$invite_code<br /><br />".
 						  "After you register, you will be able to use your account. Please take note that if you do not ".
 						  "use this invite in the next 3 days, it will expire.";
 		$mail->AltBody = "This is the body in plain text for non-HTML mail clients";

@@ -83,6 +83,50 @@ class Link{
 		return $link_data;
 	}
 	
+	public function getLinkListCategory($id){
+		$order = "";
+		$where = "";
+		$orderby = "1";
+		switch($orderby){
+			case 1:
+				$order="rank DESC, rating DESC";
+				break;
+			case 2:
+				$order="created DESC";
+				break;
+			case 3:
+				$order="rank DESC, rating DESC";
+				$where="WHERE Links.created > '".(time()-(60*60*24*7))."'";
+				break;
+			case 4:
+				$order="created ASC";
+		}
+		$sql = "SELECT Users.username, Links.link_id, Links.user_id, Links.title, Links.url, COUNT(LinkVotes.vote) AS NumberOfVotes, 
+				SUM(LinkVotes.vote) - (5 * COUNT(LinkVotes.vote)) AS rank, SUM(LinkVotes.vote)/COUNT(LinkVotes.vote) AS rating, 
+				Links.created 
+				FROM Users LEFT JOIN
+				Links USING(user_id) 
+				LEFT JOIN LinkVotes USING(link_id) 
+				LEFT JOIN LinksCategorized USING (link_id) 
+				WHERE LinksCategorized.category_id='$id' 
+				GROUP BY link_id ORDER BY $order";
+		$statement = $this->pdo_conn->query($sql);
+		$link_data = array();
+		for($i=0; $link_data_array=$statement->fetch(); $i++){
+			if($link_data_array['link_id'] != null){
+				$link_data[$i]['link_id'] = $link_data_array['link_id'];
+				$link_data[$i]['user_id'] = $link_data_array['user_id'];
+				$link_data[$i]['title'] = override\htmlentities($link_data_array['title']);
+				$link_data[$i]['created'] = $link_data_array['created'];
+				$link_data[$i]['NumberOfVotes'] = $link_data_array['NumberOfVotes'];
+				$link_data[$i]['rank'] = $link_data_array['rank'];
+				$link_data[$i]['rating'] = $link_data_array['rating'];
+				$link_data[$i]['username'] = $link_data_array['username'];
+			}
+		}
+		return $link_data;
+	}
+	
 	public function getLink(){
 		global $allowed_tags;
 		$sql = "SELECT Users.username, Links.user_id, Links.title, Links.url, Links.description, Links.created,

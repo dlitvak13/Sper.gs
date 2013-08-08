@@ -1,6 +1,29 @@
 {include file="header.tpl"}
 	<h1>Links</h1>
-
+	<h2>View Links by Category</h2>
+	<p class="categoryList">
+		<a href="./links.php?mode=all">All Links</a> | 
+		<a href="./links.php?mode=category&id=1">Android</a> | 
+		<a href="./links.php?mode=category&id=2">iOS</a> | 
+		<a href="./links.php?mode=category&id=3">API</a> | 
+		<a href="./links.php?mode=category&id=19">Yii</a> |
+		<a href="./links.php?mode=category&id=15">Hardware</a> | 
+		<a href="./links.php?mode=category&id=16">PHP</a> | 
+		<a href="./links.php?mode=category&id=17">MySQL</a> | 
+		<a href="./links.php?mode=category&id=18">Git</a> |
+		<a href="./links.php?mode=category&id=11">Testing</a> | 
+		<a href="./links.php?mode=category&id=7">UI/UX</a> | 
+		<a href="./links.php?mode=category&id=8">Libraries</a> | 
+		<a href="./links.php?mode=category&id=9">Resources</a> | 
+		<a href="./links.php?mode=category&id=10">Tutorial</a> | 
+		
+		<a href="./links.php?mode=category&id=4">Technology</a> | 
+		<a href="./links.php?mode=category&id=5">Funny</a> | 
+		<a href="./links.php?mode=category&id=6">Off-Topic</a> | 
+		<a href="./links.php?mode=category&id=12">Music</a> | 
+		<a href="./links.php?mode=category&id=13">Gaming</a> | 
+		<a href="./links.php?mode=category&id=14">Other</a>
+	</p>
 	<div class="userbar">
 		<a href="./profile.php?user={$user_id}">{$username}</a> :
 		<span id="userbar_pms" style="display:none">

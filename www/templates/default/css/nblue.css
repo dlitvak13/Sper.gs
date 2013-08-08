@@ -677,3 +677,7 @@ a.quoter-button:visited {
 	width: 700px;
 }
 
+.categoryList {
+	text-align: center;
+	font-size:16px;
+}

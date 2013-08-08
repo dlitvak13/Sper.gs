@@ -49,7 +49,7 @@
 
       <div>
         <input type="hidden" name="token" value="{$token}" /> 
-        <input type="submit" name="preview" value="Preview Message" /> 
+        <!--<input type="submit" name="preview" value="Preview Message" /> -->
         <input type="submit" name="submit" value="Post Message" /> 
         <input type="button" id="btn_upload" value="Upload Image" />
      </div>

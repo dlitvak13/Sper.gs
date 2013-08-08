@@ -77,9 +77,17 @@ if($auth == TRUE){
 			$page_title = "Links";
 		}
 	}
+	elseif(@$_GET['mode']=="category"){
+		//If GET['category'] is set, show that category. Otherwise, show categories to select from.
+		if (isset($_GET['id'])){
+			$link_list = $links->getLinkListCategory($_GET['id']);
+		}
+		
+	}
 	else
 		$link_list = $links->getLinkList($order);
-	$smarty->assign("links", $link_list);
+	$categories = $links->getCategories($db);
+	$smarty->assign("links", $link_list, $categories);
 	require("includes/deinit.php");
 }else
 	require("404.php");
