@@ -11,6 +11,8 @@
 		<a href="./links.php?mode=category&id=16">PHP</a> | 
 		<a href="./links.php?mode=category&id=17">MySQL</a> | 
 		<a href="./links.php?mode=category&id=18">Git</a> |
+		<a href="./links.php?mode=category&id=20">AWS</a> | 
+		
 		<a href="./links.php?mode=category&id=11">Testing</a> | 
 		<a href="./links.php?mode=category&id=7">UI/UX</a> | 
 		<a href="./links.php?mode=category&id=8">Libraries</a> | 
